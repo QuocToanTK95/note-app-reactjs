@@ -1,5 +1,36 @@
 import React from "react";
+import Typography from "@mui/material/Typography";
+import { Box } from "@mui/system";
+import UserMenu from "../components/UserMenu";
+import Grid from "@mui/material/Grid";
+import FolderList from "../components/FolderList";
+import { Outlet } from "react-router-dom";
 
 export default function Home() {
-  return <div>Home</div>;
+  return (
+    <>
+      <Typography variant="h4" color="initial" sx={{ mb: "20px" }}>
+        Note App
+      </Typography>
+      <Box sx={{ display: "flex", justifyContent: "right", mb: "10px" }}>
+        <UserMenu />
+      </Box>
+      <Grid
+        container
+        sx={{ height: "50vh", boxShadow: "0 0 15px 0 rgb(193 193 193 / 60%)" }}
+      >
+        <Grid item xs={3} sx={{ height: "100%" }}>
+          <FolderList
+            folders={[
+              { id: "1", name: "Plan for next Week" },
+              { id: "2", name: "Plan for next Month" },
+            ]}
+          />
+        </Grid>
+        <Grid item xs={9} sx={{ height: "100%" }}>
+          <Outlet />
+        </Grid>
+      </Grid>
+    </>
+  );
 }
