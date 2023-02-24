@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import {
   EditorState,
   convertToRaw,
@@ -9,10 +10,7 @@ import { Editor } from "react-draft-wysiwyg";
 import { draftToHtml } from "draftjs-to-html";
 
 export default function Note() {
-  const note = {
-    id: "123",
-    content: "<p>This is new note</p>",
-  };
+  const { note } = useLoaderData();
 
   const [editorState, setEditorState] = useState(() => {
     return EditorState.createEmpty();
@@ -27,7 +25,7 @@ export default function Note() {
       blocksFromHTML.entityMap
     );
     setEditorState(EditorState.createWithContent(state));
-  }, [note.id]);
+  }, [note.content, note.id]);
 
   useEffect(() => {
     setRawHTML(note.content);

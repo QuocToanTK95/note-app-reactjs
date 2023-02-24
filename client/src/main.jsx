@@ -13,9 +13,7 @@ import router from "./router";
 import "./firebase/config";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Container maxWidth="lg" sx={{ textAlign: "center", mt: "50px" }}>
-      <RouterProvider router={router} />
-    </Container>
-  </React.StrictMode>
+  <Container maxWidth="lg" sx={{ textAlign: "center", mt: "50px" }}>
+    <RouterProvider router={router} />
+  </Container>
 );

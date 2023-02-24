@@ -10,7 +10,6 @@ export default function Login() {
   const auth = getAuth();
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
-  console.log({ user });
 
   const handleLoginWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
